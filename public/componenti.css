@@ -1,0 +1,15 @@
+header{
+    display: flex;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.706);
+    border: 1px solid rgb(255, 115, 0);
+}
+.logo{
+    height: 40px;
+    margin-right: 15px;
+}

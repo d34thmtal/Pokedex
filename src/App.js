@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import "./componenti/componenti.css"
+import Pokedex from './Pokedex';
+import Login from "./componenti/Login";
+import Register from "./componenti/Register";
+
 
 function App() {
+  const [currentState, setCurrentState] = useState('login')
+
+  const toggleState = (stateName) => {
+    setCurrentState(stateName);
+  }
+
+  const stateSwitch = () => {
+    if (currentState === 'login'){
+      return <Login onStateSwitch={toggleState} />
+    }
+  else if (currentState === 'register'){
+      return <Register onStateSwitch={toggleState} />
+    }
+  else if (currentState === 'pokedex'){
+      return <Pokedex onStateSwitch={toggleState} />
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {stateSwitch()}
     </div>
   );
 }
